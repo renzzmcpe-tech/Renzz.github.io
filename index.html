@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HCI - Sejarah & ID Card</title>
+    <title>KDT 401 - Kartu Identitas</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
@@ -11,14 +11,14 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#165DFF',
-                        secondary: '#36CFC9',
-                        dark: '#1D2129',
-                        light: '#F2F3F5'
+                        utama: '#7928CA',
+                        aksen: '#FF0080',
+                        gelap: '#18181B',
+                        terang: '#FAFAFA'
                     },
                     fontFamily: {
                         poppins: ['Poppins', 'sans-serif'],
-                        raleway: ['Raleway', 'sans-serif'],
+                        rajdhani: ['Rajdhani', 'sans-serif'],
                     },
                 }
             }
@@ -26,70 +26,73 @@
     </script>
     <style type="text/tailwindcss">
         @layer utilities {
-            .text-shadow {
-                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            .text-keren {
+                text-shadow: 0 0 30px rgba(121, 40, 202, 0.5);
+                letter-spacing: 4px;
             }
-            .card-shadow {
-                box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            .kartu-bayangan {
+                box-shadow: 0 15px 35px rgba(121, 40, 202, 0.2);
             }
-            .gradient-bg {
-                background: linear-gradient(135deg, #165DFF 0%, #36CFC9 100%);
+            .gradasi-warna {
+                background: linear-gradient(135deg, #7928CA 0%, #FF0080 100%);
             }
         }
     </style>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Rajdhani:wght@600;700;800&display=swap" rel="stylesheet">
 </head>
-<body class="font-poppins bg-light min-h-screen overflow-x-hidden">
-    <!-- Halaman 1: Intro & Sejarah -->
-    <section id="page1" class="min-h-screen flex flex-col items-center justify-center p-6 relative">
-        <div class="absolute top-0 left-0 w-full h-64 gradient-bg opacity-90"></div>
+<body class="font-poppins bg-terang min-h-screen overflow-x-hidden">
+
+    <!-- HALAMAN 1: INTRO KDT 401 -->
+    <section id="halaman1" class="min-h-screen flex flex-col items-center justify-center p-6 relative">
+        <div class="absolute top-0 left-0 w-full h-72 gradasi-warna opacity-95"></div>
         
         <div class="z-10 text-center mb-12">
-            <h1 class="font-raleway font-black text-[clamp(3.5rem,10vw,6rem)] text-white text-shadow mb-4 tracking-wider">HCI</h1>
-            <div class="bg-white/90 backdrop-blur-md p-8 rounded-2xl card-shadow max-w-2xl mx-auto">
-                <h2 class="text-primary font-bold text-2xl mb-4">Sejarah HCI (Human-Computer Interaction)</h2>
-                <p class="text-dark/80 leading-relaxed text-justify">
-                    Sejarah HCI dimulai pada tahun 1940-an saat komputer pertama kali dikembangkan, namun pada masa itu interaksi masih sangat rumit dan hanya bisa dilakukan oleh ahli. Pada tahun 1960-an, muncul konsep antarmuka pengguna dan penelitian tentang cara manusia berinteraksi dengan mesin. Tahun 1970-1980 adalah masa perkembangan pesat dengan munculnya antarmuka grafis (GUI) oleh Xerox PARC, yang kemudian dikembangkan oleh Apple dan Microsoft. Pada tahun 1990-an hingga sekarang, HCI berkembang menjadi disiplin ilmu yang menggabungkan ilmu komputer, psikologi, desain, dan ergonomi, berfokus pada pembuatan sistem yang mudah, nyaman, dan efisien digunakan manusia.
+            <h1 class="font-rajdhani font-black text-[clamp(4rem,12vw,7rem)] text-white text-keren mb-4">KDT 401</h1>
+            
+            <div class="bg-white/95 backdrop-blur-md p-8 rounded-3xl kartu-bayangan max-w-2xl mx-auto">
+                <h2 class="text-utama font-bold text-2xl mb-4">Tentang KDT 401</h2>
+                <p class="text-gelap/80 leading-relaxed text-justify text-base">
+                    <strong>KDT 401</strong> adalah mata kuliah atau materi yang membahas tentang prinsip-prinsip dasar teknologi, pengembangan sistem, dan penerapan pengetahuan dalam bidang rekayasa teknologi. Materi ini berfokus pada pemahaman konsep teoritis sekaligus penerapan praktis, melatih kemampuan analisis, pemecahan masalah, dan desain solusi teknologi yang efisien dan inovatif. KDT 401 menjadi fondasi penting bagi mahasiswa atau pelajar untuk memahami cara kerja, perancangan, serta pengelolaan sistem teknologi informasi yang digunakan di dunia nyata.
                 </p>
             </div>
         </div>
 
-        <button onclick="gotoPage(2)" class="bg-primary hover:bg-primary/90 text-white font-semibold px-10 py-3 rounded-full transition-all duration-300 transform hover:scale-105 card-shadow flex items-center gap-2 z-10">
+        <button onclick="pindahHalaman(2)" class="gradasi-warna text-white font-semibold px-12 py-4 rounded-full transition-all duration-300 transform hover:scale-110 kartu-bayangan flex items-center gap-3 z-10">
             Lanjut <i class="fa fa-arrow-right"></i>
         </button>
     </section>
 
-    <!-- Halaman 2: Isi Data Diri -->
-    <section id="page2" class="min-h-screen hidden flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50">
-        <div class="w-full max-w-lg bg-white rounded-3xl card-shadow p-8">
-            <h2 class="text-center text-[clamp(1.8rem,5vw,2.5rem)] font-raleway font-bold text-primary mb-8">Data Diri</h2>
+    <!-- HALAMAN 2: ISI DATA DIRI -->
+    <section id="halaman2" class="min-h-screen hidden flex-col items-center justify-center p-6 bg-gradient-to-br dari-ungu-50 ke-merah-muda-50">
+        <div class="w-full max-w-lg bg-white rounded-[2rem] kartu-bayangan p-8">
+            <h2 class="text-center text-[clamp(1.8rem,5vw,2.5rem)] font-rajdhani font-bold text-utama mb-8">Data Diri Kamu</h2>
             
-            <form id="dataForm" class="space-y-5">
+            <form id="formData" class="space-y-5">
                 <div>
-                    <label class="block text-dark/70 font-medium mb-2">Nama Lengkap</label>
-                    <input type="text" id="nama" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Masukkan nama kamu" required>
+                    <label class="block text-gelap/70 font-medium mb-2">Nama Lengkap</label>
+                    <input type="text" id="nama" class="w-full px-5 py-3 border border-ungu-100 rounded-xl focus:ring-2 focus:ring-utama/30 focus:border-utama outline-none transition" placeholder="Masukkan nama kamu" required>
                 </div>
                 
                 <div>
-                    <label class="block text-dark/70 font-medium mb-2">Kelas</label>
-                    <input type="text" id="kelas" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Contoh: XII TKJ A" required>
+                    <label class="block text-gelap/70 font-medium mb-2">Kelas / Jurusan</label>
+                    <input type="text" id="kelas" class="w-full px-5 py-3 border border-ungu-100 rounded-xl focus:ring-2 focus:ring-utama/30 focus:border-utama outline-none transition" placeholder="Contoh: TI-3A / XII TKJ" required>
                 </div>
 
                 <div>
-                    <label class="block text-dark/70 font-medium mb-2">Umur</label>
-                    <input type="number" id="umur" min="10" max="100" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Contoh: 17" required>
+                    <label class="block text-gelap/70 font-medium mb-2">Umur</label>
+                    <input type="number" id="umur" min="10" max="100" class="w-full px-5 py-3 border border-ungu-100 rounded-xl focus:ring-2 focus:ring-utama/30 focus:border-utama outline-none transition" placeholder="Contoh: 19" required>
                 </div>
 
                 <div>
-                    <label class="block text-dark/70 font-medium mb-2">Tempat Tinggal</label>
-                    <input type="text" id="tinggal" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Kota / Desa, Provinsi" required>
+                    <label class="block text-gelap/70 font-medium mb-2">Tempat Tinggal</label>
+                    <input type="text" id="tinggal" class="w-full px-5 py-3 border border-ungu-100 rounded-xl focus:ring-2 focus:ring-utama/30 focus:border-utama outline-none transition" placeholder="Kota / Kecamatan" required>
                 </div>
 
                 <div>
-                    <label class="block text-dark/70 font-medium mb-2">Jenis Kelamin</label>
-                    <select id="kelamin" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" required>
+                    <label class="block text-gelap/70 font-medium mb-2">Jenis Kelamin</label>
+                    <select id="kelamin" class="w-full px-5 py-3 border border-ungu-100 rounded-xl focus:ring-2 focus:ring-utama/30 focus:border-utama outline-none transition" required>
                         <option value="">Pilih salah satu</option>
                         <option value="Laki-laki">Laki-laki</option>
                         <option value="Perempuan">Perempuan</option>
@@ -98,91 +101,93 @@
                 </div>
 
                 <div>
-                    <label class="block text-dark/70 font-medium mb-2">Status</label>
-                    <select id="status" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" required>
+                    <label class="block text-gelap/70 font-medium mb-2">Status</label>
+                    <select id="status" class="w-full px-5 py-3 border border-ungu-100 rounded-xl focus:ring-2 focus:ring-utama/30 focus:border-utama outline-none transition" required>
                         <option value="">Pilih salah satu</option>
-                        <option value="Pelajar">Pelajar</option>
                         <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Pelajar">Pelajar</option>
                         <option value="Pekerja">Pekerja</option>
                         <option value="Umum">Umum</option>
                     </select>
                 </div>
 
-                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl transition-all mt-6">
+                <button type="submit" class="w-full gradasi-warna text-white font-semibold py-3 rounded-xl transition-all mt-6 hover:opacity-90">
                     Buat ID Card
                 </button>
             </form>
         </div>
     </section>
 
-    <!-- Halaman 3: ID Card & Download -->
-    <section id="page3" class="min-h-screen hidden flex-col items-center justify-center p-6 bg-gray-50">
-        <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-raleway font-bold text-center text-dark mb-10">Kartu Identitas HCI</h2>
+    <!-- HALAMAN 3: ID CARD & DOWNLOAD -->
+    <section id="halaman3" class="min-h-screen hidden flex-col items-center justify-center p-6 bg-gray-50">
+        <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-rajdhani font-bold text-center text-gelap mb-10">Kartu Identitas KDT 401</h2>
         
-        <div id="idCard" class="w-[340px] h-[480px] gradient-bg rounded-3xl card-shadow p-6 relative overflow-hidden transform transition-all">
-            <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mt-20 -mr-20"></div>
-            <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full -mb-20 -ml-20"></div>
+        <div id="kartuId" class="w-[350px] h-[500px] gradasi-warna rounded-[2rem] kartu-bayangan p-7 relative overflow-hidden transform transition-all">
+            <div class="absolute top-0 right-0 w-48 h-48 bg-white/10 rounded-full -mt-24 -mr-24"></div>
+            <div class="absolute bottom-0 left-0 w-48 h-48 bg-white/10 rounded-full -mb-24 -ml-24"></div>
             
-            <div class="text-center mb-6 relative z-10">
-                <h3 class="font-raleway font-extrabold text-white text-3xl tracking-wider">HCI</h3>
-                <p class="text-white/80 text-sm">Human-Computer Interaction</p>
+            <div class="text-center mb-8 relative z-10">
+                <h3 class="font-rajdhani font-extrabold text-white text-4xl tracking-widest">KDT 401</h3>
+                <p class="text-white/85 text-sm">Kartu Peserta Resmi</p>
             </div>
 
-            <div class="bg-white rounded-2xl p-5 h-[320px] relative z-10">
-                <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white">
-                    <i class="fa fa-user text-white text-3xl"></i>
+            <div class="bg-white rounded-2xl p-6 h-[340px] relative z-10">
+                <div class="w-24 h-24 gradasi-warna rounded-full flex items-center justify-center mx-auto -mt-14 mb-5 border-4 border-white">
+                    <i class="fa fa-user text-white text-4xl"></i>
                 </div>
 
                 <div class="space-y-3 text-center">
-                    <h4 id="cardNama" class="font-bold text-xl text-dark"></h4>
-                    <div class="w-full h-[1px] bg-gray-200"></div>
+                    <h4 id="namaKartu" class="font-bold text-xl text-gelap"></h4>
+                    <div class="w-full h-[2px] bg-gradient-to-r dari-utama ke-aksen rounded-full"></div>
                     
-                    <div class="grid grid-cols-2 gap-2 text-sm text-left mt-4">
-                        <p class="text-dark/60 font-medium">Kelas</p>
-                        <p id="cardKelas" class="text-dark font-semibold"></p>
+                    <div class="grid grid-cols-2 gap-2 text-sm text-left mt-5">
+                        <p class="text-gelap/60 font-medium">Kelas</p>
+                        <p id="kelasKartu" class="text-gelap font-semibold"></p>
                         
-                        <p class="text-dark/60 font-medium">Umur</p>
-                        <p id="cardUmur" class="text-dark font-semibold"></p>
+                        <p class="text-gelap/60 font-medium">Umur</p>
+                        <p id="umurKartu" class="text-gelap font-semibold"></p>
                         
-                        <p class="text-dark/60 font-medium">Kelamin</p>
-                        <p id="cardKelamin" class="text-dark font-semibold"></p>
+                        <p class="text-gelap/60 font-medium">Kelamin</p>
+                        <p id="kelaminKartu" class="text-gelap font-semibold"></p>
                         
-                        <p class="text-dark/60 font-medium">Status</p>
-                        <p id="cardStatus" class="text-dark font-semibold"></p>
+                        <p class="text-gelap/60 font-medium">Status</p>
+                        <p id="statusKartu" class="text-gelap font-semibold"></p>
                         
-                        <p class="text-dark/60 font-medium">Asal</p>
-                        <p id="cardTinggal" class="text-dark font-semibold col-span-2"></p>
+                        <p class="text-gelap/60 font-medium">Asal</p>
+                        <p id="tinggalKartu" class="text-gelap font-semibold col-span-2"></p>
                     </div>
                 </div>
             </div>
+        </div>
 
-            <div class="mt-8 flex flex-col sm:flex-row gap-4">
-                <button onclick="downloadIDCard()" class="bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full transition-all flex items-center justify-center gap-2">
-                    <i class="fa fa-download"></i> Unduh ID Card
-                </button>
-                <button onclick="gotoPage(4)" class="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-full transition-all flex items-center justify-center gap-2">
-                    Lanjut <i class="fa fa-arrow-right"></i>
-                </button>
-            </div>
+        <div class="mt-8 flex flex-col gap-4 w-full max-w-xs">
+            <button onclick="unduhKartu()" class="bg-aksen hover:bg-aksen/90 text-white font-semibold px-8 py-3 rounded-full transition-all flex items-center justify-center gap-2">
+                <i class="fa fa-download"></i> Unduh ID Card
+            </button>
+            <button onclick="pindahHalaman(4)" class="bg-utama hover:bg-utama/90 text-white font-semibold px-8 py-3 rounded-full transition-all flex items-center justify-center gap-2">
+                Lanjut <i class="fa fa-arrow-right"></i>
+            </button>
         </div>
     </section>
 
-    <!-- Halaman 4: Penutup & Sejarah Lanjutan -->
-    <section id="page4" class="min-h-screen hidden flex-col items-center justify-center p-6 gradient-bg">
-        <div class="max-w-3xl text-center text-white">
-            <h2 class="font-raleway font-bold text-[clamp(2rem,6vw,3.5rem)] mb-6 text-shadow">Terima Kasih</h2>
+    <!-- HALAMAN 4: KIRIM KE NOMOR TUJUAN -->
+    <section id="halaman4" class="min-h-screen hidden flex-col items-center justify-center p-6 gradasi-warna">
+        <div class="max-w-lg w-full text-center text-white">
+            <h2 class="font-rajdhani font-bold text-[clamp(2rem,6vw,3.5rem)] mb-6 text-keren">Selesai!</h2>
             
-            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl mb-8">
-                <p class="text-lg leading-relaxed mb-4">
-                    Sejarah perkembangan HCI membuktikan bahwa teknologi tidak hanya soal kecanggihan mesin, tetapi bagaimana mesin itu bisa memahami dan melayani kebutuhan manusia. Dari layar hitam putih hingga antarmuka sentuh dan kecerdasan buatan, HCI terus berkembang untuk menciptakan hubungan yang harmonis antara manusia dan komputer.
+            <div class="bg-white/15 backdrop-blur-md p-8 rounded-3xl mb-8">
+                <p class="text-lg leading-relaxed mb-6">
+                    Data dan kartu identitas kamu sudah berhasil dibuat. Klik tombol di bawah ini untuk mengirimkan semua data diri kamu ke nomor tujuan:
+                    <br><strong class="text-xl">08813775781</strong>
                 </p>
-                <p class="text-lg leading-relaxed">
-                    Masa depan HCI akan semakin menarik dengan teknologi seperti realitas maya, antarmuka otak-komputer, dan sistem yang semakin cerdas. Memahami sejarahnya membantu kita menghargai betapa jauhnya kita telah melangkah, dan betapa pentingnya desain yang berpusat pada manusia.
-                </p>
+                
+                <button onclick="kirimKeWhatsApp()" class="w-full bg-white text-utama font-bold py-4 rounded-xl transition-all transform hover:scale-105 kartu-bayangan flex items-center justify-center gap-3 text-lg">
+                    <i class="fa fa-whatsapp text-2xl"></i> Kirim Data ke WhatsApp
+                </button>
             </div>
 
             <p class="text-white/80 italic">
-                "Teknologi terbaik adalah teknologi yang menghilang — sehingga kita bisa fokus pada apa yang ingin kita capai, bukan pada alat yang kita gunakan."
+                "Terima kasih telah mengisi data diri untuk keperluan KDT 401"
             </p>
         </div>
     </section>
@@ -191,21 +196,22 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
 
     <script>
+        // Simpan data sementara
+        let dataPengguna = {};
+
         // Fungsi pindah halaman
-        function gotoPage(pageNum) {
-            // Sembunyikan semua halaman
+        function pindahHalaman(noHalaman) {
             document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
-            // Tampilkan halaman tujuan
-            document.getElementById(`page${pageNum}`).classList.remove('hidden');
+            document.getElementById(`halaman${noHalaman}`).classList.remove('hidden');
             window.scrollTo(0,0);
         }
 
-        // Proses form data diri
-        document.getElementById('dataForm').addEventListener('submit', function(e) {
+        // Proses simpan data form
+        document.getElementById('formData').addEventListener('submit', function(e) {
             e.preventDefault();
             
-            // Ambil data
-            const data = {
+            // Ambil semua data
+            dataPengguna = {
                 nama: document.getElementById('nama').value,
                 kelas: document.getElementById('kelas').value,
                 umur: document.getElementById('umur').value + ' Tahun',
@@ -214,32 +220,48 @@
                 status: document.getElementById('status').value
             };
 
-            // Isi ke ID Card
-            document.getElementById('cardNama').textContent = data.nama;
-            document.getElementById('cardKelas').textContent = data.kelas;
-            document.getElementById('cardUmur').textContent = data.umur;
-            document.getElementById('cardKelamin').textContent = data.kelamin;
-            document.getElementById('cardStatus').textContent = data.status;
-            document.getElementById('cardTinggal').textContent = data.tinggal;
+            // Masukkan ke ID Card
+            document.getElementById('namaKartu').textContent = dataPengguna.nama;
+            document.getElementById('kelasKartu').textContent = dataPengguna.kelas;
+            document.getElementById('umurKartu').textContent = dataPengguna.umur;
+            document.getElementById('kelaminKartu').textContent = dataPengguna.kelamin;
+            document.getElementById('statusKartu').textContent = dataPengguna.status;
+            document.getElementById('tinggalKartu').textContent = dataPengguna.tinggal;
 
-            // Pindah ke halaman ID Card
-            gotoPage(3);
+            // Pindah ke halaman kartu
+            pindahHalaman(3);
         });
 
-        // Fungsi download ID Card jadi gambar
-        function downloadIDCard() {
-            const card = document.getElementById('idCard');
+        // Fungsi unduh kartu jadi gambar
+        function unduhKartu() {
+            const elemenKartu = document.getElementById('kartuId');
             
-            html2canvas(card, {
-                scale: 3,
+            html2canvas(elemenKartu, {
+                scale: 4,
                 useCORS: true,
                 backgroundColor: null
             }).then(canvas => {
-                const link = document.createElement('a');
-                link.href = canvas.toDataURL('image/png');
-                link.download = 'ID-Card-HCI.png';
-                link.click();
+                const tautan = document.createElement('a');
+                tautan.href = canvas.toDataURL('image/png');
+                tautan.download = 'ID-Card-KDT401.png';
+                tautan.click();
             });
+        }
+
+        // Fungsi kirim data ke nomor WA 08813775781
+        function kirimKeWhatsApp() {
+            const nomorTujuan = '628813775781'; // Pakai kode negara tanpa +
+            const pesan = `*DATA DIRI PESERTA KDT 401*%0A%0A` +
+                          `Nama: ${dataPengguna.nama}%0A` +
+                          `Kelas/Jurusan: ${dataPengguna.kelas}%0A` +
+                          `Umur: ${dataPengguna.umur}%0A` +
+                          `Tempat Tinggal: ${dataPengguna.tinggal}%0A` +
+                          `Jenis Kelamin: ${dataPengguna.kelamin}%0A` +
+                          `Status: ${dataPengguna.status}%0A%0A` +
+                          `*Dikirim dari Aplikasi KDT 401*`;
+
+            // Buka WhatsApp langsung
+            window.open(`https://wa.me/${nomorTujuan}?text=${pesan}`, '_blank');
         }
     </script>
 </body>
