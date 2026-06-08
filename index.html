@@ -1,0 +1,246 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HCI - Sejarah & ID Card</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/font-awesome@4.7.0/css/font-awesome.min.css" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        primary: '#165DFF',
+                        secondary: '#36CFC9',
+                        dark: '#1D2129',
+                        light: '#F2F3F5'
+                    },
+                    fontFamily: {
+                        poppins: ['Poppins', 'sans-serif'],
+                        raleway: ['Raleway', 'sans-serif'],
+                    },
+                }
+            }
+        }
+    </script>
+    <style type="text/tailwindcss">
+        @layer utilities {
+            .text-shadow {
+                text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+            }
+            .card-shadow {
+                box-shadow: 0 8px 32px rgba(0,0,0,0.12);
+            }
+            .gradient-bg {
+                background: linear-gradient(135deg, #165DFF 0%, #36CFC9 100%);
+            }
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;900&family=Raleway:wght@400;600;800&display=swap" rel="stylesheet">
+</head>
+<body class="font-poppins bg-light min-h-screen overflow-x-hidden">
+    <!-- Halaman 1: Intro & Sejarah -->
+    <section id="page1" class="min-h-screen flex flex-col items-center justify-center p-6 relative">
+        <div class="absolute top-0 left-0 w-full h-64 gradient-bg opacity-90"></div>
+        
+        <div class="z-10 text-center mb-12">
+            <h1 class="font-raleway font-black text-[clamp(3.5rem,10vw,6rem)] text-white text-shadow mb-4 tracking-wider">HCI</h1>
+            <div class="bg-white/90 backdrop-blur-md p-8 rounded-2xl card-shadow max-w-2xl mx-auto">
+                <h2 class="text-primary font-bold text-2xl mb-4">Sejarah HCI (Human-Computer Interaction)</h2>
+                <p class="text-dark/80 leading-relaxed text-justify">
+                    Sejarah HCI dimulai pada tahun 1940-an saat komputer pertama kali dikembangkan, namun pada masa itu interaksi masih sangat rumit dan hanya bisa dilakukan oleh ahli. Pada tahun 1960-an, muncul konsep antarmuka pengguna dan penelitian tentang cara manusia berinteraksi dengan mesin. Tahun 1970-1980 adalah masa perkembangan pesat dengan munculnya antarmuka grafis (GUI) oleh Xerox PARC, yang kemudian dikembangkan oleh Apple dan Microsoft. Pada tahun 1990-an hingga sekarang, HCI berkembang menjadi disiplin ilmu yang menggabungkan ilmu komputer, psikologi, desain, dan ergonomi, berfokus pada pembuatan sistem yang mudah, nyaman, dan efisien digunakan manusia.
+                </p>
+            </div>
+        </div>
+
+        <button onclick="gotoPage(2)" class="bg-primary hover:bg-primary/90 text-white font-semibold px-10 py-3 rounded-full transition-all duration-300 transform hover:scale-105 card-shadow flex items-center gap-2 z-10">
+            Lanjut <i class="fa fa-arrow-right"></i>
+        </button>
+    </section>
+
+    <!-- Halaman 2: Isi Data Diri -->
+    <section id="page2" class="min-h-screen hidden flex-col items-center justify-center p-6 bg-gradient-to-br from-blue-50 to-cyan-50">
+        <div class="w-full max-w-lg bg-white rounded-3xl card-shadow p-8">
+            <h2 class="text-center text-[clamp(1.8rem,5vw,2.5rem)] font-raleway font-bold text-primary mb-8">Data Diri</h2>
+            
+            <form id="dataForm" class="space-y-5">
+                <div>
+                    <label class="block text-dark/70 font-medium mb-2">Nama Lengkap</label>
+                    <input type="text" id="nama" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Masukkan nama kamu" required>
+                </div>
+                
+                <div>
+                    <label class="block text-dark/70 font-medium mb-2">Kelas</label>
+                    <input type="text" id="kelas" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Contoh: XII TKJ A" required>
+                </div>
+
+                <div>
+                    <label class="block text-dark/70 font-medium mb-2">Umur</label>
+                    <input type="number" id="umur" min="10" max="100" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Contoh: 17" required>
+                </div>
+
+                <div>
+                    <label class="block text-dark/70 font-medium mb-2">Tempat Tinggal</label>
+                    <input type="text" id="tinggal" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" placeholder="Kota / Desa, Provinsi" required>
+                </div>
+
+                <div>
+                    <label class="block text-dark/70 font-medium mb-2">Jenis Kelamin</label>
+                    <select id="kelamin" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" required>
+                        <option value="">Pilih salah satu</option>
+                        <option value="Laki-laki">Laki-laki</option>
+                        <option value="Perempuan">Perempuan</option>
+                        <option value="Lainnya">Lainnya</option>
+                    </select>
+                </div>
+
+                <div>
+                    <label class="block text-dark/70 font-medium mb-2">Status</label>
+                    <select id="status" class="w-full px-4 py-3 border border-gray-200 rounded-xl focus:ring-2 focus:ring-primary/30 focus:border-primary outline-none transition" required>
+                        <option value="">Pilih salah satu</option>
+                        <option value="Pelajar">Pelajar</option>
+                        <option value="Mahasiswa">Mahasiswa</option>
+                        <option value="Pekerja">Pekerja</option>
+                        <option value="Umum">Umum</option>
+                    </select>
+                </div>
+
+                <button type="submit" class="w-full bg-primary hover:bg-primary/90 text-white font-semibold py-3 rounded-xl transition-all mt-6">
+                    Buat ID Card
+                </button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Halaman 3: ID Card & Download -->
+    <section id="page3" class="min-h-screen hidden flex-col items-center justify-center p-6 bg-gray-50">
+        <h2 class="text-[clamp(1.8rem,5vw,2.5rem)] font-raleway font-bold text-center text-dark mb-10">Kartu Identitas HCI</h2>
+        
+        <div id="idCard" class="w-[340px] h-[480px] gradient-bg rounded-3xl card-shadow p-6 relative overflow-hidden transform transition-all">
+            <div class="absolute top-0 right-0 w-40 h-40 bg-white/10 rounded-full -mt-20 -mr-20"></div>
+            <div class="absolute bottom-0 left-0 w-40 h-40 bg-white/10 rounded-full -mb-20 -ml-20"></div>
+            
+            <div class="text-center mb-6 relative z-10">
+                <h3 class="font-raleway font-extrabold text-white text-3xl tracking-wider">HCI</h3>
+                <p class="text-white/80 text-sm">Human-Computer Interaction</p>
+            </div>
+
+            <div class="bg-white rounded-2xl p-5 h-[320px] relative z-10">
+                <div class="w-20 h-20 gradient-bg rounded-full flex items-center justify-center mx-auto -mt-12 mb-4 border-4 border-white">
+                    <i class="fa fa-user text-white text-3xl"></i>
+                </div>
+
+                <div class="space-y-3 text-center">
+                    <h4 id="cardNama" class="font-bold text-xl text-dark"></h4>
+                    <div class="w-full h-[1px] bg-gray-200"></div>
+                    
+                    <div class="grid grid-cols-2 gap-2 text-sm text-left mt-4">
+                        <p class="text-dark/60 font-medium">Kelas</p>
+                        <p id="cardKelas" class="text-dark font-semibold"></p>
+                        
+                        <p class="text-dark/60 font-medium">Umur</p>
+                        <p id="cardUmur" class="text-dark font-semibold"></p>
+                        
+                        <p class="text-dark/60 font-medium">Kelamin</p>
+                        <p id="cardKelamin" class="text-dark font-semibold"></p>
+                        
+                        <p class="text-dark/60 font-medium">Status</p>
+                        <p id="cardStatus" class="text-dark font-semibold"></p>
+                        
+                        <p class="text-dark/60 font-medium">Asal</p>
+                        <p id="cardTinggal" class="text-dark font-semibold col-span-2"></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-8 flex flex-col sm:flex-row gap-4">
+                <button onclick="downloadIDCard()" class="bg-secondary hover:bg-secondary/90 text-white font-semibold px-8 py-3 rounded-full transition-all flex items-center justify-center gap-2">
+                    <i class="fa fa-download"></i> Unduh ID Card
+                </button>
+                <button onclick="gotoPage(4)" class="bg-primary hover:bg-primary/90 text-white font-semibold px-8 py-3 rounded-full transition-all flex items-center justify-center gap-2">
+                    Lanjut <i class="fa fa-arrow-right"></i>
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Halaman 4: Penutup & Sejarah Lanjutan -->
+    <section id="page4" class="min-h-screen hidden flex-col items-center justify-center p-6 gradient-bg">
+        <div class="max-w-3xl text-center text-white">
+            <h2 class="font-raleway font-bold text-[clamp(2rem,6vw,3.5rem)] mb-6 text-shadow">Terima Kasih</h2>
+            
+            <div class="bg-white/10 backdrop-blur-md p-8 rounded-2xl mb-8">
+                <p class="text-lg leading-relaxed mb-4">
+                    Sejarah perkembangan HCI membuktikan bahwa teknologi tidak hanya soal kecanggihan mesin, tetapi bagaimana mesin itu bisa memahami dan melayani kebutuhan manusia. Dari layar hitam putih hingga antarmuka sentuh dan kecerdasan buatan, HCI terus berkembang untuk menciptakan hubungan yang harmonis antara manusia dan komputer.
+                </p>
+                <p class="text-lg leading-relaxed">
+                    Masa depan HCI akan semakin menarik dengan teknologi seperti realitas maya, antarmuka otak-komputer, dan sistem yang semakin cerdas. Memahami sejarahnya membantu kita menghargai betapa jauhnya kita telah melangkah, dan betapa pentingnya desain yang berpusat pada manusia.
+                </p>
+            </div>
+
+            <p class="text-white/80 italic">
+                "Teknologi terbaik adalah teknologi yang menghilang — sehingga kita bisa fokus pada apa yang ingin kita capai, bukan pada alat yang kita gunakan."
+            </p>
+        </div>
+    </section>
+
+    <!-- Library untuk Download Gambar -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <script>
+        // Fungsi pindah halaman
+        function gotoPage(pageNum) {
+            // Sembunyikan semua halaman
+            document.querySelectorAll('section').forEach(sec => sec.classList.add('hidden'));
+            // Tampilkan halaman tujuan
+            document.getElementById(`page${pageNum}`).classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        // Proses form data diri
+        document.getElementById('dataForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Ambil data
+            const data = {
+                nama: document.getElementById('nama').value,
+                kelas: document.getElementById('kelas').value,
+                umur: document.getElementById('umur').value + ' Tahun',
+                tinggal: document.getElementById('tinggal').value,
+                kelamin: document.getElementById('kelamin').value,
+                status: document.getElementById('status').value
+            };
+
+            // Isi ke ID Card
+            document.getElementById('cardNama').textContent = data.nama;
+            document.getElementById('cardKelas').textContent = data.kelas;
+            document.getElementById('cardUmur').textContent = data.umur;
+            document.getElementById('cardKelamin').textContent = data.kelamin;
+            document.getElementById('cardStatus').textContent = data.status;
+            document.getElementById('cardTinggal').textContent = data.tinggal;
+
+            // Pindah ke halaman ID Card
+            gotoPage(3);
+        });
+
+        // Fungsi download ID Card jadi gambar
+        function downloadIDCard() {
+            const card = document.getElementById('idCard');
+            
+            html2canvas(card, {
+                scale: 3,
+                useCORS: true,
+                backgroundColor: null
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.href = canvas.toDataURL('image/png');
+                link.download = 'ID-Card-HCI.png';
+                link.click();
+            });
+        }
+    </script>
+</body>
+</html>
